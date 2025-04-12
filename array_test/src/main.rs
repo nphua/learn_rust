@@ -1,9 +1,6 @@
 use std::io;
 
-fn main(){
-
-    let a = [1,2,3,4,5];
-
+fn main() {
     println!("Please enter an array index.");
 
     let mut index = String::new();
@@ -15,9 +12,18 @@ fn main(){
     let index: usize = index
         .trim()
         .parse()
-        .expect("INdex enter was not a number");
+        .expect("Index entered was not a number");
 
-    let element = a[index];
+    another_function(index);
+}
 
-    println!("The value of the element at index {index} is {element}");
+fn another_function(index: usize) {
+    let a = [1, 2, 3, 4, 5];
+
+    if index < a.len() {
+        let element = a[index];
+        println!("The value of the element at index {} is {}", index, element);
+    } else {
+        println!("Index {} is out of bounds!", index);
+    }
 }
